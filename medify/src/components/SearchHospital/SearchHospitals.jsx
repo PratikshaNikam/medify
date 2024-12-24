@@ -1,71 +1,75 @@
 import { MenuItem, Select, Button, InputAdornment, Box } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export default function SearchHospitals() {
+//Component to search the hospitals based on State and City selection.
+//API used to fetch details of hospital and set the values in formData
+export default function SearchHospital() {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
-  const [formData,setFormData] = useState({
-    state: "",
-    city: "",
-  });
+  const [formData, setFormData] = useState({ state: "", city: "" });
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchStates = async () => {
       try {
-        const response = await axios.get("https://meddata-backend.onrender.com/states");
+        const response = await axios.get(
+          "https://meddata-backend.onrender.com/states"
+        );
         setStates(response.data);
-      }
-      catch (error) {
-        console.log("Error fetching states:", error)
-        
+      } catch (error) {
+        console.error("Error fetching states:", error);
       }
     };
+
     fetchStates();
-  })
+  }, []);
 
   useEffect(() => {
     const fetchCities = async () => {
       setCities([]);
       setFormData((prev) => ({ ...prev, city: "" }));
       try {
-        const data = await axios.get(`https://meddata-backend.onrender.com/cities/${formData.state}`);
+        const data = await axios.get(
+          `https://meddata-backend.onrender.com/cities/${formData.state}`
+        );
         setCities(data.data);
-        
+        // console.log("city", data.data);
+      } catch (error) {
+        console.log("Error in fetching city:", error);
       }
-      catch (error) {
-        console.log("Error in fetching city:", error)
-      }
-    }  
-  })
-  
+    };
+
+    if (formData.state != "") {
+      fetchCities();
+    }
+  }, [formData.state]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-  }
-  const handleSubmit = async (e) => {
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.state && formData.city) {
       navigate(`/search?state=${formData.state}&city=${formData.city}`);
-      
     }
-  }
-  
+  };
+
   return (
     <Box
       component="form"
       onSubmit={handleSubmit}
       sx={{
         display: "flex",
+        gap: 4,
         justifyContent: "space-between",
-        gap:4,
-        flexDirection: {xs:"column",md:"row"},
+        flexDirection: { xs: "column", md: "row" },
       }}
     >
-
       <Select
         displayEmpty
         id="state"
@@ -78,7 +82,8 @@ export default function SearchHospitals() {
           </InputAdornment>
         }
         required
-        sx={{ minWidth: 200, width: "100%" }}>
+        sx={{ minWidth: 200, width: "100%" }}
+      >
         <MenuItem disabled value="" selected>
           State
         </MenuItem>
@@ -87,8 +92,6 @@ export default function SearchHospitals() {
             {state}
           </MenuItem>
         ))}
-        
-
       </Select>
 
       <Select
@@ -102,24 +105,29 @@ export default function SearchHospitals() {
             <SearchIcon />
           </InputAdornment>
         }
-        requiredsx={{ minWidth: 200, width: "100%" }}
+        required
+        sx={{ minWidth: 200, width: "100%" }}
       >
         <MenuItem disabled value="" selected>
-          City</MenuItem>
+          City
+        </MenuItem>
         {cities.map((city) => (
           <MenuItem key={city} value={city}>
             {city}
           </MenuItem>
         ))}
-
       </Select>
 
-      <Button type="submit" variant="contained" size="large" startIcon={<SearchIcon />}
+      <Button
+        type="submit"
+        variant="contained"
+        size="large"
+        startIcon={<SearchIcon />}
         sx={{ py: "15px", px: 8, flexShrink: 0 }}
-      disableElevation>
+        disableElevation
+      >
         Search
       </Button>
-
     </Box>
-  )
+  );
 }

@@ -1,9 +1,9 @@
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import offer1 from '../assets/offer1.png';
-import offer2 from '../assets/offer2.png';
-import { Box, Typography,Container } from '@mui/material';
+import offer1 from '../../assets/offer1.png';
+import offer2 from '../../assets/offer2.png';
+import { Box,Container } from '@mui/material';
 
 
 export default function Offers() {

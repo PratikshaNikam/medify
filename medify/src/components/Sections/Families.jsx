@@ -1,7 +1,7 @@
-import banner from '../assets/our-families-banner.png';
+import banner from '../../assets/our-families-banner.png';
 import { Box, Container, Grid, Typography } from '@mui/material';
 
-export default function Families() {
+export default function OurFamilies() {
   return (
     <Box pt={3} sx={{ background: 'linear-gradient(#E7F0FF,#E8F1FF)' }}>
       <Container>

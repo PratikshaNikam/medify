@@ -16,7 +16,7 @@ export default function BlogCard() {
         </Typography>
 
         <Typography component='h3' color='#1B3C74' fontSize={{xs:14 ,md:18}} fontWeight={500 } lineHeight={1.8}>
-            6 Tips To Protect Your Mental Health When You're Sick.
+            6 Tips To Protect Your Mental Health When You are Sick.
         </Typography>
 
         <Stack direction='row' alignItems='center' spacing={1} >

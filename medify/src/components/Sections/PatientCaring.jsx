@@ -1,7 +1,7 @@
 
 import { Box, Container, Grid, Typography, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import banner from '../assets/patientcaring.png';
-import tick from '../assets/tick-blue.png';
+import banner from '../../assets/patientcaring.png';
+import tick from '../../assets/tick-blue.png';
 
 export default function PatientCaring() {
   return (

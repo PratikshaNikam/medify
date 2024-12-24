@@ -1,51 +1,58 @@
-//import styles from './Home.module.css'
-//import NavBar from "../NavBar/NavBar";
-import FAQ from "../components/Sections/FAQ";
-import Families from "../components/Sections/Families";
+import { Container, Box, Stack } from "@mui/material";
+import HeroSlider from "../components/HeroSlider/HeroSlider";
+import SearchHospital from "../components/SearchHospital/SearchHospitals";
+import FAQs from "../components/Sections/FAQ";
+import OurFamilies from "../components/Sections/Families";
 import Blogs from "../components/Sections/Blogs";
-import PatientCaring from "../components/Sections/PatientCaring"
-import Specialist from "../components/Sections/specialist";
+import PatientCaring from "../components/Sections/PatientCaring";
+import Specialists from "../components/Sections/specialist";
 import Specialization from "../components/Sections/Specialization";
-import HeroServices from "../components/IconLayout/HeroServices";
-import SearchHospitals from "../components/SearchHospital/SearchHospitals";
-import NavBar from "../components/Navbar/NavBar";
 import Offers from "../components/Sections/Offers";
-import {Container,Box,Stack} from "@mui/material"
+import NavBar from "../components/Navbar/NavBar";
+import HeroServices from "../components/IconLayout/HeroServices";
 
 export default function Home() {
   return (
     <Box>
       <Box
-        sx={{ background: "linear-gradient(#E7F0FF,rgba(232,241,255,0.47) 90%, #fff 10%)", }} mb={4}>
-         <NavBar/> 
-
+        sx={{
+          background:
+            "linear-gradient(#E7F0FF , rgba(232, 241, 255, 0.47) 90%, #fff 10%)",
+        }}
+        mb={4}
+      >
+        <NavBar />
         <Container maxWidth="xl">
-          {/* <HeroSlider/>  */}
-          <Stack p={{ xs: 2.5, md: 8 }}
+          <HeroSlider />
+          <Stack
+            p={{ xs: 2.5, md: 8 }}
             mt={{ xs: -2, md: 0, lg: -6, xl: -10 }}
             position="relative"
-            zInde={99}
+            zIndex={99}
             bgcolor="#fff"
             borderRadius="15px"
             spacing={10}
-            boxShadow="0 0 12px rgba(0,0,0,0.1">
-            <SearchHospitals />
-            <HeroServices/>
-
+            boxShadow="0 0 12px rgba(0,0,0,0.1)"
+          >
+            <SearchHospital />
+            <HeroServices />
           </Stack>
-
         </Container>
-
       </Box>
 
       <Offers />
+
       <Specialization />
-      <Specialist />
+
+      <Specialists />
+
       <PatientCaring />
+
       <Blogs />
-      <Families />
-      <FAQ/>
-      
-   </Box>
-  )
+
+      <OurFamilies />
+
+      <FAQs />
+    </Box>
+  );
 }

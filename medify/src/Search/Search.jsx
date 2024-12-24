@@ -5,10 +5,10 @@ import { useSearchParams } from "react-router-dom";
 import HospitalCard from "../components/HospitalCard/HospitalCard";
 import icon from "../assets/tick.png";
 import cta from "../assets/cta.png";
-import SearchHospital from "../components/SearchHospital/SearchHospitals";
+import SearchHospital from '../components/SearchHospital/SearchHospitals';
 import BookingModal from "../components/BookingModal/BookingModal";
 import AutohideSnackbar from "../components/AutohideSnackbar/AutohideSnackbar";
-import NavBar from "../components/Navbar/NavBar";
+import NavBar from "../components/NavBar/NavBar";
 
 export default function Search() {
   const [seachParams, setSearchParams] = useSearchParams();
