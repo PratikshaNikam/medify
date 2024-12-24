@@ -1,6 +1,6 @@
-import featured from '../assets/blog.png';
+import featured from "../../assets/blog.png";
 import { Box, Typography, Stack } from '@mui/material';
-import person from '../assets/person.png';
+import person from '../../assets/person.png';
 
 
 export default function BlogCard() {

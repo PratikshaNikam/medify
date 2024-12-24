@@ -1,14 +1,15 @@
 //import styles from './Home.module.css'
 //import NavBar from "../NavBar/NavBar";
-import FAQ from "../components/FAQ";
-import Families from "../components/Families";
-import Blogs from "../components/Blogs";
-import PatientCaring from "../components/PatientCaring"
-import Specialist from "../components/specialist";
-import Specialization from "../components/Specialization";
-import HeroServices from "../components/HeroServices";
-import NavBar from "../components/NavBar";
-import Offers from "../components/Offers";
+import FAQ from "../components/Sections/FAQ";
+import Families from "../components/Sections/Families";
+import Blogs from "../components/Sections/Blogs";
+import PatientCaring from "../components/Sections/PatientCaring"
+import Specialist from "../components/Sections/specialist";
+import Specialization from "../components/Sections/Specialization";
+import HeroServices from "../components/IconLayout/HeroServices";
+import SearchHospitals from "../components/SearchHospital/SearchHospitals";
+import NavBar from "../components/Navbar/NavBar";
+import Offers from "../components/Sections/Offers";
 import {Container,Box,Stack} from "@mui/material"
 
 export default function Home() {
@@ -28,7 +29,7 @@ export default function Home() {
             borderRadius="15px"
             spacing={10}
             boxShadow="0 0 12px rgba(0,0,0,0.1">
-            {/* <SearchHospital /> */}
+            <SearchHospitals />
             <HeroServices/>
 
           </Stack>

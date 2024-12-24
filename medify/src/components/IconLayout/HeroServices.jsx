@@ -5,7 +5,7 @@ import pharmacyIcon from "../assets/Drugstore.png";
 import hospitalIcon from "../assets/Hospital.png";
 import capsuleIcon from "../assets/Capsule.png";
 import ambulanceIcon from "../assets/Ambulance.png";
-import IconCard from "./IconCard";
+import IconCard from "../IconCard/IconCard";
 import {useMemo} from "react";
 
 export default function HeroServices() {

@@ -2,8 +2,8 @@ import { Outlet } from 'react-router-dom';
 import {CssBaseline} from '@mui/material';
 import './App.css';
 import DownloadApp
-  from './components/DownloadApp';
-  import Footer from './components/Footer';
+  from './components/Sections/DownloadApp';
+  import Footer from './components/Footer/Footer';
 
 function App() {
 
